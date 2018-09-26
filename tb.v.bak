@@ -1,0 +1,28 @@
+module tb
+  (
+  );
+  
+  reg atb;
+  reg btb;
+  reg stb;
+  wire [63:0] data_out;
+  
+  plexer1 p1
+  (
+    .a(atb),
+    .b(btb),
+    .s(stb),
+    .data_out(data_out)
+    );
+    
+   initial
+   begin
+   atb = 64'h1111;
+   btb = 64'h1234;
+   stb = 1'b1;
+   end
+   
+   always
+   #5 stb = ~stb; 
+    
+endmodule    
